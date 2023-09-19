@@ -1,8 +1,12 @@
 const content = document.querySelector('.content');
 const btn = document.querySelector('.btn');
 const bombNumber = [];
+const emptySquare = [];
+
 
 let formSelect;
+
+let score = 0;
 
 reset();
 
@@ -13,23 +17,44 @@ btn.addEventListener('click', function(){
   formSelect = document.getElementById('inputGroupSelect04').value;
   
   createUniqueBombNumber(1, numberSquare());
-  
+
+   
   
   for(let i = 1; i <= numberSquare(); i++ ){
     
     let square = createSquare (i);
     content.append(square);
+
+
     square.addEventListener('click', function(){
-      
-      this.classList.toggle('active');
-      
-      console.log(this._squareID);
+
+      if(bombNumber.includes(this._squareID)){
+
+        this.classList.add("bomb");
+
+      }else{
+
+
+        this.classList.add('active');
+
+        point();
+
+        emptySquare.push(i);
+        
+        if(emptySquare.length == (numberSquare() - bombNumber.length)) message = 'Hai VINTO'
+        
+        console.log(emptySquare)
+      }
+
+      console.log(point)
+
       
     });
     
   };
   
 });
+
 
 
 function createSquare (index){
@@ -91,3 +116,8 @@ function createUniqueBombNumber(min, max){
 function getRandomNumber(min, max){
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
+
+function point(){
+  
+  score + 1
+}

@@ -36,7 +36,7 @@ section .cst-menu {
 
 
 .square.active {
-  background-color: red;
+  background-color: azure;
 }
 
 .hard {
