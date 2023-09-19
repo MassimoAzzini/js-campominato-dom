@@ -74,7 +74,7 @@ function createUniqueBombNumber(min, max){
   
   
   let randomNumber;
-  while(bombNumber.length <= 16){
+  while(bombNumber.length <= 15){
     
     randomNumber = getRandomNumber(min, max);
     if(!bombNumber.includes(randomNumber)){
@@ -84,7 +84,6 @@ function createUniqueBombNumber(min, max){
   };
 
   console.log(bombNumber)
-  return randomNumber;
 };
 
 
