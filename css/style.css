@@ -51,3 +51,7 @@ section .cst-menu {
   width: calc(100% / 10);
 }
 
+.bomb {
+  background-color: red;
+}
+
