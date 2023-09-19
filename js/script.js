@@ -2,6 +2,7 @@ const content = document.querySelector('.content');
 const btn = document.querySelector('.btn');
 const bombNumber = [];
 const emptySquare = [];
+const output = document.getElementById('output');
 
 let messaggio
 
@@ -53,13 +54,11 @@ btn.addEventListener('click', function(){
           viewBomb()
 
         } 
-        
-        
-        console.log(emptySquare)
+
       }
       
-      console.log(messaggio)
-      
+      document.getElementById('output').innerHTML = messaggio;
+
     });
     
   };
@@ -97,10 +96,11 @@ function createSquare (index){
 
 function reset(){
   content.innerHTML = '';
+  output.innerHTML = '';
   bombNumber.splice(0, bombNumber.length);
   score = 0
   emptySquare.splice(0, emptySquare.length);
-  messaggio = '';
+  messaggio = ''
 };
 
 
@@ -144,5 +144,4 @@ function viewBomb(){
     
   }
 
-  console.log(listSquare)
 }
