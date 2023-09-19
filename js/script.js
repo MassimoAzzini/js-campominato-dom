@@ -3,13 +3,12 @@ const btn = document.querySelector('.btn');
 const bombNumber = [];
 const emptySquare = [];
 
-console.log(bombNumber)
 let messaggio
-
 
 let formSelect;
 
 let score = 0;
+
 
 reset();
 
@@ -35,7 +34,9 @@ btn.addEventListener('click', function(){
         
         viewBomb()
 
+        messaggio = `Hai PERSO! Il tuo punteggio è ${score}`;
 
+        // !bombNumber.includes(square)
 
       }else{
 
@@ -46,16 +47,18 @@ btn.addEventListener('click', function(){
         emptySquare.push(i);
         
         if(emptySquare.length == (numberSquare() - bombNumber.length)){
-          messaggio = 'Hai VINTO';
+
+          messaggio = `Hai VINTO! Il tuo punteggio è ${score}`;
+
+          viewBomb()
+
         } 
         
         
         console.log(emptySquare)
       }
       
-      // console.log(score)
-      // console.log(messaggio)
-      
+      console.log(messaggio)
       
     });
     
@@ -95,6 +98,9 @@ function createSquare (index){
 function reset(){
   content.innerHTML = '';
   bombNumber.splice(0, bombNumber.length);
+  score = 0
+  emptySquare.splice(0, emptySquare.length);
+  messaggio = '';
 };
 
 
@@ -125,12 +131,15 @@ function getRandomNumber(min, max){
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
+
 function viewBomb(){
   const listSquare = document.getElementsByClassName('square');
   for(let i = 0; i < listSquare.length; i++){
     
     if(bombNumber.includes(listSquare[i]._squareID)){
       listSquare[i].classList.add('bomb');
+    }else{
+      listSquare[i].classList.add('active');
     }
     
   }

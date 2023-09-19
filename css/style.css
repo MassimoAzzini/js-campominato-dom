@@ -35,8 +35,9 @@ section .cst-menu {
 }
 
 
-.square.active {
-  background-color: azure;
+.active {
+  background-color: lightskyblue;
+  pointer-events: none;
 }
 
 .hard {
@@ -53,5 +54,10 @@ section .cst-menu {
 
 .bomb {
   background-color: red;
+  pointer-events: none;
+}
+
+.end {
+  pointer-events: none;
 }
 
