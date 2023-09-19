@@ -9,12 +9,11 @@ reset();
 btn.addEventListener('click', function(){
   
   reset();
-
+  
   formSelect = document.getElementById('inputGroupSelect04').value;
-
+  
   createUniqueBombNumber(1, numberSquare());
-
-  console.log(bombNumber);
+  
   
   for(let i = 1; i <= numberSquare(); i++ ){
     
@@ -28,7 +27,6 @@ btn.addEventListener('click', function(){
       
     });
     
-    console.log(square)
   };
   
 });
@@ -36,28 +34,28 @@ btn.addEventListener('click', function(){
 
 function createSquare (index){
   const newSquare = document.createElement('div');
-
+  
   newSquare._squareID = index;
   newSquare.className = 'square'
-
+  
   newSquare.innerHTML = `<span>${index}</span>`;
   
   if(formSelect == 2){ 
-
+    
     newSquare.classList.add('medium'); 
-
+    
   }else if(formSelect == 3){
-
+    
     newSquare.classList.add('hard');
-
+    
   }else if(formSelect == 1){
-
+    
     newSquare.classList.add('easy');
-
+    
   }
-
+  
   return newSquare;
-
+  
 };
 
 
@@ -72,22 +70,24 @@ function numberSquare(){
   else if(formSelect == 3) return 49;
 };
 
-
 function createUniqueBombNumber(min, max){
   
+  
   let randomNumber;
-  while(bombNumber.lenght <= 15){
+  while(bombNumber.length <= 16){
     
     randomNumber = getRandomNumber(min, max);
-    if(!bombNumber.include(randomNumber)){
+    if(!bombNumber.includes(randomNumber)){
       bombNumber.push(randomNumber);
+      console.log(bombNumber);
     }
-  }
-  
+  };
+
+  console.log(bombNumber)
   return randomNumber;
 };
 
 
 function getRandomNumber(min, max){
-  return matchMedia.floor(Math.random() * (max - min + 1) + min);
+  return Math.floor(Math.random() * (max - min + 1) + min);
 };
