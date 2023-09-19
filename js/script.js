@@ -61,6 +61,7 @@ function createSquare (index){
 
 function reset(){
   content.innerHTML = '';
+  bombNumber.splice(0, bombNumber.length);
 };
 
 
